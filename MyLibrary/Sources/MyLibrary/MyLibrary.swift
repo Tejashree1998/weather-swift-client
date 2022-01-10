@@ -41,4 +41,6 @@ public class MyLibrary {
     private func contains(_ lhs: Int, _ rhs: Character) -> Bool {
         return String(lhs).contains(rhs)
     }
+
+    //Do something
 }
