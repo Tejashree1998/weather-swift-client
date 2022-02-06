@@ -5,10 +5,12 @@ public protocol WeatherService {
 }
 
 class WeatherServiceImpl: WeatherService {
-    let url = "https://api.openweathermap.org/data/2.5/weather?q=corvallis&units=imperial&appid=<INSERT YOUR API KEY HERE>"
+    let url = "https://api.openweathermap.org/data/2.5/weather?q=corvallis&units=imperial&appid=e679ac896f0a8f7c8618b594abab831a"
 
     func getTemperature(completion: @escaping (_ response: Result<Int /* Temperature */, Error>) -> Void) {
+        print("weather service line 12")
         AF.request(url, method: .get).validate(statusCode: 200..<300).responseDecodable(of: Weather.self) { response in
+            
             switch response.result {
             case let .success(weather):
                 let temperature = weather.main.temp
